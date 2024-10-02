@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат предобработки изображения</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f1ebe5;
+        }
+        .result-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .result-container h2 {
+            color: #fe272b;
+        }
+        .result-container p {
+            font-size: 18px;
+            color: #333;
+        }
+        .result-container img {
+            max-width: 400px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 0px;
+        }
+        .result-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #fe272b;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .result-container a:hover {
+            background-color: #be281a;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <img src="{{ url_for('media', path='logo.png') }}" alt="Логотип" height="50" width="100" border="0">
+        <h2>Результат обработки изображения</h2>
+        <p>Класс поворота: {{ rotation_class }}</p>
+        <div>
+            <h3>Оригинальное изображение:</h3>
+            <img src="/tmp/{{ original_image }}" alt="Оригинальное изображение">
+        </div>
+        <div>
+            <h3>Повернутое изображение:</h3>
+            <img src="/tmp/{{ rotated_image }}" alt="Повернутое изображение">
+        </div>
+        <a href="/">Загрузить другое изображение</a>
+    </div>
+</body>
+</html>

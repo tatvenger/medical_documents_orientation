@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Предобработка медицинских документов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1ebe5;
+        }
+        .upload-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .upload-container h2 {
+            margin-bottom: 20px;
+            color: #fe272b;
+        }
+        .upload-container img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+        .upload-container input[type="file"] {
+            margin-bottom: 10px;
+        }
+        .upload-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #fe272b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        .upload-container button:hover {
+            background-color: #be281a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="upload-container">
+        <img src="{{ url_for('media', path='logo.png') }}" alt="Логотип" height="50" width="100" border="0">
+        <h2>Загрузите изображение справки</h2>
+        <form action="/predict-detect" enctype="multipart/form-data" method="post">
+            <input name="file" type="file" accept="image/*" required>
+            <br><br>
+            <button type="submit">Загрузить изображение</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
